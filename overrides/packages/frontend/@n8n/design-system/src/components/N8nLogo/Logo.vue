@@ -64,6 +64,11 @@ onMounted(() => {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+
+	svg {
+		width: 25px;
+		height: 25px;
+	}
 }
 
 .logoText {
@@ -74,12 +79,12 @@ onMounted(() => {
 }
 
 .large {
-	transform: scale(2);
+	transform: scale(1.2);
 	margin-bottom: var(--spacing-xl);
 
 	.logo,
 	.logoText {
-		transform: scale(1.3) translateY(-2px);
+		transform: scale(1) translateY(2px);
 	}
 
 	.logoText {
@@ -93,8 +98,8 @@ onMounted(() => {
 }
 
 .sidebarCollapsed .logo {
-	width: 40px;
-	height: 32px;
-	padding: 0 var(--spacing-4xs);
+	width: 25px;
+	height: 25px;
+	padding: 0;
 }
 </style>
