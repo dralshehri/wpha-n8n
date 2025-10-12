@@ -16,17 +16,19 @@ RUN git clone --depth 1 --branch n8n@${BASE_VERSION} https://github.com/n8n-io/n
 
 WORKDIR /n8n
 
-# Copy overrides to apply customizations
+# Install dependencies
+RUN pnpm install --frozen-lockfile
+
+# Copy and apply overrides
 COPY overrides /tmp/overrides
 COPY scripts/apply-overrides.sh /tmp/
-
-# Apply overrides to source code
 RUN bash /tmp/apply-overrides.sh && rm -rf /tmp/overrides /tmp/apply-overrides.sh
 
-# Install dependencies and build n8n
-RUN pnpm install --frozen-lockfile && \
-    pnpm build && \
-    node scripts/build-n8n.mjs
+# Build n8n using official script
+# Note: build-n8n.mjs internally runs pnpm build
+ENV CI=true
+ENV TURBO_TELEMETRY_DISABLED=1
+RUN node scripts/build-n8n.mjs
 
 # Final stage - extend official n8n image with our compiled version
 FROM n8nio/n8n:${BASE_VERSION}
