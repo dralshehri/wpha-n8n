@@ -66,8 +66,8 @@ onMounted(() => {
 	align-items: center;
 
 	svg {
-		width: 25px;
-		height: 25px;
+		width: 24px;
+		height: 24px;
 	}
 }
 
@@ -98,8 +98,8 @@ onMounted(() => {
 }
 
 .sidebarCollapsed .logo {
-	width: 25px;
-	height: 25px;
+	width: 24px;
+	height: 24px;
 	padding: 0;
 }
 </style>
