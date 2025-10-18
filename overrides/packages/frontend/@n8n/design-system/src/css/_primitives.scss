@@ -43,85 +43,85 @@
 	--s-primary: 100%;
 	--l-primary: 68%;
 
-	--p-color-primary-420: hsl(7, 69%, 58%);
-	--p-color-primary-320: hsl(7, 65%, 64%); // Base
-	--p-color-primary-220: hsl(7, 60%, 70%);
-	--p-color-primary-120: hsl(7, 60%, 86%);
-	--p-color-primary-070: hsl(7, 60%, 90%);
-	--p-color-primary-050: hsl(7, 60%, 95%);
-	--p-color-primary-030: hsl(7, 60%, 98%);
+	--p-color-primary-420: hsl(12, 31%, 37%);
+	--p-color-primary-320: hsl(12, 31%, 50%); // Base
+	--p-color-primary-220: hsl(12, 31%, 60%);
+	--p-color-primary-120: hsl(12, 31%, 70%);
+	--p-color-primary-070: hsl(12, 31%, 76%);
+	--p-color-primary-050: hsl(12, 31%, 82%);
+	--p-color-primary-030: hsl(12, 31%, 86%);
 
-	--p-color-primary-320-a-010: hsla(173, 87%, 36%, 0.1);
-	--p-color-primary-320-a-035: hsla(173, 87%, 36%, 0.35);
-	--p-color-primary-320-a-050: hsla(173, 87%, 36%, 0.5);
+	--p-color-primary-320-a-010: hsla(12, 31%, 50%, 0.1);
+	--p-color-primary-320-a-035: hsla(12, 31%, 50%, 0.35);
+	--p-color-primary-320-a-050: hsla(12, 31%, 50%, 0.5);
 
 	// Secondary color
-	--p-color-secondary-720: hsl(247, 24%, 28%);
-	--p-color-secondary-570: hsl(247, 49%, 43%);
-	--p-color-secondary-470: hsl(247, 49%, 53%); // Base
-	--p-color-secondary-370: hsl(247, 49%, 63%);
-	--p-color-secondary-270: hsl(247, 49%, 73%);
-	--p-color-secondary-170: hsl(247, 49%, 83%);
-	--p-color-secondary-070: hsl(247, 49%, 93%);
+	--p-color-secondary-720: hsl(245, 60%, 45%);
+	--p-color-secondary-570: hsl(245, 60%, 57%);
+	--p-color-secondary-470: hsl(245, 60%, 70%); // Base
+	--p-color-secondary-370: hsl(251, 49%, 75%);
+	--p-color-secondary-270: hsl(251, 49%, 78%);
+	--p-color-secondary-170: hsl(251, 49%, 82%);
+	--p-color-secondary-070: hsl(251, 49%, 85%);
 
-	--p-color-secondary-470-a-010: hsla(247, 49%, 53%, 0.1);
-	--p-color-secondary-470-a-025: hsla(247, 49%, 53%, 0.25);
+	--p-color-secondary-470-a-010: hsla(245, 60%, 70%, 0.1);
+	--p-color-secondary-470-a-025: hsla(245, 60%, 70%, 0.25);
 
 	// Color Alternate A
-	--p-color-alt-a-800: hsl(150, 45%, 20%);
-	--p-color-alt-a-700: hsl(150, 53%, 30%);
-	--p-color-alt-a-600: hsl(150, 60%, 40%); // Base
-	--p-color-alt-a-300: hsl(150, 60%, 70%);
-	--p-color-alt-a-200: hsl(150, 60%, 80%);
-	--p-color-alt-a-100: hsl(150, 60%, 90%);
-	--p-color-alt-a-050: hsl(150, 60%, 95%);
+	--p-color-alt-a-800: hsl(173, 85%, 16%);
+	--p-color-alt-a-700: hsl(173, 85%, 24%);
+	--p-color-alt-a-600: hsl(173, 85%, 33%); // Base
+	--p-color-alt-a-300: hsl(173, 85%, 60%);
+	--p-color-alt-a-200: hsl(173, 85%, 70%);
+	--p-color-alt-a-100: hsl(173, 85%, 80%);
+	--p-color-alt-a-050: hsl(173, 85%, 86%);
 
-	--p-color-alt-a-600-a-015: hsla(150, 60%, 40%, 0.15);
-	--p-color-alt-a-600-a-025: hsla(150, 60%, 40%, 0.25);
+	--p-color-alt-a-600-a-015: hsla(173, 85%, 33%, 0.15);
+	--p-color-alt-a-600-a-025: hsla(173, 85%, 33%, 0.25);
 
 	// Color Alternate B
-	--p-color-alt-b-780: hsl(36, 42%, 22%);
-	--p-color-alt-b-680: hsl(36, 42%, 32%);
-	--p-color-alt-b-530: hsl(36, 77%, 47%);
-	--p-color-alt-b-430: hsl(36, 77%, 57%); // Base
-	--p-color-alt-b-280: hsl(36, 77%, 72%);
-	--p-color-alt-b-180: hsl(36, 77%, 82%);
-	--p-color-alt-b-130: hsl(36, 77%, 87%);
-	--p-color-alt-b-030: hsl(36, 77%, 97%);
+	--p-color-alt-b-780: hsl(42, 100%, 17%);
+	--p-color-alt-b-680: hsl(42, 100%, 30%);
+	--p-color-alt-b-530: hsl(42, 100%, 42%);
+	--p-color-alt-b-430: hsl(42, 100%, 55%); // Base
+	--p-color-alt-b-280: hsl(42, 100%, 72%);
+	--p-color-alt-b-180: hsl(42, 100%, 82%);
+	--p-color-alt-b-130: hsl(42, 100%, 87%);
+	--p-color-alt-b-030: hsl(42, 100%, 95%);
 
-	--p-color-alt-b-430-a-020: hsla(36, 77%, 57%, 0.2);
+	--p-color-alt-b-430-a-020: hsla(42, 100%, 55%, 0.2);
 
 	// Color Alternate C
-	--p-color-alt-c-730: hsl(355, 43%, 27%);
-	--p-color-alt-c-630: hsl(355, 53%, 37%);
-	--p-color-alt-c-580: hsl(355, 83%, 42%);
-	--p-color-alt-c-480: hsl(355, 83%, 52%); // Base
-	--p-color-alt-c-330: hsl(355, 83%, 67%);
-	--p-color-alt-c-230: hsl(355, 83%, 77%);
-	--p-color-alt-c-180: hsl(355, 83%, 82%);
-	--p-color-alt-c-080: hsl(355, 83%, 92%);
-	--p-color-alt-c-030: hsl(355, 83%, 97%);
+	--p-color-alt-c-730: hsl(358, 69%, 18%);
+	--p-color-alt-c-630: hsl(358, 69%, 31%);
+	--p-color-alt-c-580: hsl(358, 69%, 42%);
+	--p-color-alt-c-480: hsl(358, 69%, 56%); // Base
+	--p-color-alt-c-330: hsl(358, 69%, 67%);
+	--p-color-alt-c-230: hsl(358, 69%, 77%);
+	--p-color-alt-c-180: hsl(358, 69%, 82%);
+	--p-color-alt-c-080: hsl(358, 69%, 92%);
+	--p-color-alt-c-030: hsl(358, 69%, 97%);
 
-	--p-color-alt-c-480-a-020: hsla(355, 83%, 52%, 0.2);
-	--p-color-alt-c-480-a-010: hsla(355, 83%, 52%, 0.1);
+	--p-color-alt-c-480-a-020: hsla(358, 69%, 56%, 0.2);
+	--p-color-alt-c-480-a-010: hsla(358, 69%, 56%, 0.1);
 
 	// Color Alternate D
-	--p-color-alt-d-780: hsl(46, 45%, 22%);
-	--p-color-alt-d-680: hsl(46, 45%, 32%);
-	--p-color-alt-d-230: hsl(46, 100%, 77%);
-	--p-color-alt-d-080: hsl(46, 100%, 92%); // Base
+	--p-color-alt-d-780: hsl(42, 45%, 22%);
+	--p-color-alt-d-680: hsl(42, 45%, 32%);
+	--p-color-alt-d-230: hsl(42, 100%, 77%);
+	--p-color-alt-d-080: hsl(42, 100%, 92%); // Base
 
 	// Color Alternate E
-	--p-color-alt-e-780: hsl(210, 47%, 22%);
-	--p-color-alt-e-680: hsl(210, 57%, 32%);
-	--p-color-alt-e-580: hsl(210, 67%, 42%);
-	--p-color-alt-e-530: hsl(210, 67%, 47%);
-	--p-color-alt-e-430: hsl(210, 67%, 57%); // Base
-	--p-color-alt-e-180: hsl(210, 67%, 82%);
-	--p-color-alt-e-080: hsl(210, 67%, 92%);
+	--p-color-alt-e-780: hsl(226, 65%, 22%);
+	--p-color-alt-e-680: hsl(226, 65%, 32%);
+	--p-color-alt-e-580: hsl(226, 65%, 42%);
+	--p-color-alt-e-530: hsl(226, 65%, 47%);
+	--p-color-alt-e-430: hsl(226, 65%, 56%); // Base
+	--p-color-alt-e-180: hsl(226, 65%, 82%);
+	--p-color-alt-e-080: hsl(226, 65%, 92%);
 
 	// Color Alternate F
-	--p-color-alt-f-560: hsl(147, 83%, 44%); // Base
+	--p-color-alt-f-560: hsl(173, 85%, 42%); // Base
 
 	// Color Alternate G
 	--p-color-alt-g-700: hsl(247, 10%, 30%); // Base
@@ -129,7 +129,7 @@
 	--p-color-alt-g-700-a-075: hsla(247, 10%, 30%, 0.75);
 
 	// Color Alternate H - Used for errors in dark mode
-	--p-color-alt-h-310: hsl(355, 100%, 69%); // Base
+	--p-color-alt-h-310: hsl(358, 89%, 65%); // Base
 }
 
 :root {
