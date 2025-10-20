@@ -20,27 +20,27 @@ export const cssVariables = `
 	--font-size-subheader: 14px;
 
 	/* Colors */
-	--color-background: #fbfcfe;
+	--color-background: #F2F2F2;
 	--color-test-notice-text: #D69600;
 	--color-test-notice-bg: #FFF7E5;
 	--color-test-notice-border: #FFD470;
 	--color-card-bg: #ffffff;
-	--color-card-border: #dbdfe7;
+	--color-card-border: #D9D9D9;
 	--color-card-shadow: rgba(99, 77, 255, 0.06);
-	--color-link: #7e8186;
-	--color-header: #525356;
-	--color-label: #555555;
-	--color-input-border: #dbdfe7;
+	--color-link: #838383;
+	--color-header: #505050;
+	--color-label: #505050;
+	--color-input-border: #D9D9D9;
 	--color-input-text: #71747A;
-	--color-focus-border: #0CAD9A;
-	--color-submit-btn-bg: #0CAD9A;
+	--color-focus-border: #007A80;
+	--color-submit-btn-bg: #007A80;
 	--color-submit-btn-text: #ffffff;
 	--color-error: #DC4247;
 	--color-required: #DC4247;
-	--color-clear-button-bg: #7e8186;
-	--color-html-text: #555;
-	--color-html-link: #0CAD9A;
-	--color-header-subtext: #7e8186;
+	--color-clear-button-bg: #838383;
+	--color-html-text: #505050;
+	--color-html-link: #007A80;
+	--color-header-subtext: #838383;
 
 	/* Border Radii */
 	--border-radius-card: 8px;
