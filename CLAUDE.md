@@ -52,33 +52,42 @@ git push  # Triggers automatic Docker build
 
 ```bash
 # Build Docker image
-docker build --build-arg BASE_VERSION=1.115.0 -t wpha-n8n:local .
+docker build --build-arg BASE_VERSION=1.115.3 -t wpha-n8n:local .
 ```
 
 ### Updating Base Version
 
 ```bash
-# Update base version
-echo "1.116.0" > BASE_VERSION
-
-# In upstream repo, rebase custom branch
+# In upstream repo, rebase custom branch (do this in your IDE for easy conflict resolution)
 cd ../n8n
 git fetch origin --tags
 git checkout custom
-git rebase n8n@1.116.0
 
-# Extract and commit
+# Option 1: Interactive rebase (recommended - lets you drop non-WPHA commits)
+git rebase -i n8n@1.116.2
+# In the editor that opens:
+#   - DELETE all lines NOT starting with "WPHA:"
+#   - KEEP all lines starting with "WPHA:"
+#   - Save and close
+# If conflicts occur, your IDE will show them - resolve and continue rebase in IDE
+
+# Option 2: Auto rebase (may have conflicts from non-WPHA commits)
+git rebase n8n@1.116.2
+# If conflicts occur, resolve in IDE and continue rebase
+
+# Update and extract
 cd ../wpha-n8n
+echo "1.116.2" > BASE_VERSION
 ./scripts/extract-overrides.sh
 git add BASE_VERSION overrides/
-git commit -m "Update to n8n 1.116.0"
+git commit -m "Update to n8n 1.116.2"
 git push
 ```
 
 ## Critical Files and Their Purposes
 
 ### BASE_VERSION
-Contains the n8n version (e.g., `1.115.0`) this custom build is based on. Changing this requires rebasing the upstream custom branch.
+Contains the n8n version (e.g., `1.115.3`) this custom build is based on. Changing this requires rebasing the upstream custom branch.
 
 ### overrides/
 **CRITICAL: Never edit directly!** These files are automatically extracted from the upstream repository. Directory structure mirrors n8n's source structure under `packages/`.

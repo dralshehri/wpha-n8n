@@ -120,25 +120,33 @@ git push  # Triggers automatic Docker build
 
 #### Updating Base Version
 
-When upgrading to a new n8n version:
+When upgrading to a new n8n version (best done in your IDE for easy conflict resolution):
 
 ```bash
-# 1. Update base version
-echo "1.116.0" > BASE_VERSION
-
-# 2. In upstream repo, rebase custom branch onto new version
+# 1. In upstream repo, rebase custom branch onto new version
 cd ../n8n
 git fetch origin --tags
-git tag --sort=-version:refname | grep "^n8n@" | head -1  # Check latest version
+git tag --sort=-version:refname | grep "^n8n@" | head -10  # Check latest version
 git checkout custom
-git rebase n8n@1.116.0  # Use specific version
-# If conflicts occur, resolve them and run: git rebase --continue
 
-# 3. Extract and commit
+# 2. Interactive rebase (RECOMMENDED - lets you drop non-WPHA commits)
+git rebase -i n8n@1.116.2
+# In the editor that opens:
+#   - DELETE all lines NOT starting with "WPHA:"
+#   - KEEP all lines starting with "WPHA:"
+#   - Save and close
+# If conflicts occur, your IDE will highlight them - resolve and continue rebase in IDE
+
+# Alternative: Auto rebase (may include upstream commits causing conflicts)
+# git rebase n8n@1.116.2
+# If conflicts occur, resolve in IDE and continue rebase
+
+# 3. Update BASE_VERSION and extract overrides
 cd ../wpha-n8n
+echo "1.116.2" > BASE_VERSION
 ./scripts/extract-overrides.sh
 git add BASE_VERSION overrides/
-git commit -m "Update to n8n 1.116.0"
+git commit -m "Update to n8n 1.116.2"
 git push
 ```
 
