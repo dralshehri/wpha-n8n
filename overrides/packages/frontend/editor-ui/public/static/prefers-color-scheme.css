@@ -1,0 +1,4 @@
+/* Always use light background on initial load - matches --color--background--light-2 */
+body {
+	background-color: hsl(220, 50%, 99%);
+}
