@@ -1,4 +1,4 @@
-name: Build Docker Image
+name: Build Docker Images
 
 on:
   push:
@@ -13,7 +13,8 @@ concurrency:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  N8N_IMAGE_NAME: ${{ github.repository }}
+  RUNNERS_IMAGE_NAME: ${{ github.repository }}-runners
 
 jobs:
   build:
@@ -39,11 +40,20 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Extract metadata
-        id: meta
+      - name: Extract n8n metadata
+        id: meta-n8n
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/${{ env.N8N_IMAGE_NAME }}
+          tags: |
+            type=sha
+            type=raw,value=latest
+
+      - name: Extract runners metadata
+        id: meta-runners
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.RUNNERS_IMAGE_NAME }}
           tags: |
             type=sha
             type=raw,value=latest
@@ -51,15 +61,30 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build and push
+      - name: Build and push n8n image
         uses: docker/build-push-action@v6
         with:
           context: .
+          file: ./Dockerfile
           push: true
           platforms: linux/amd64
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          tags: ${{ steps.meta-n8n.outputs.tags }}
+          labels: ${{ steps.meta-n8n.outputs.labels }}
           build-args: |
             BASE_VERSION=${{ steps.version.outputs.base }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          cache-from: type=gha,scope=n8n
+          cache-to: type=gha,mode=max,scope=n8n
+
+      - name: Build and push runners image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: ./Dockerfile.runners
+          push: true
+          platforms: linux/amd64
+          tags: ${{ steps.meta-runners.outputs.tags }}
+          labels: ${{ steps.meta-runners.outputs.labels }}
+          build-args: |
+            BASE_VERSION=${{ steps.version.outputs.base }}
+          cache-from: type=gha,scope=runners
+          cache-to: type=gha,mode=max,scope=runners

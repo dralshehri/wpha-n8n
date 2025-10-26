@@ -1,0 +1,25 @@
+ARG BASE_VERSION
+FROM n8nio/runners:${BASE_VERSION}
+
+USER root
+
+# Install extra runtime-only Node packages
+WORKDIR /opt/runners/task-runner-javascript
+RUN corepack enable pnpm
+RUN rm -f node_modules/.modules.yaml
+RUN mv package.json package.json.bak
+COPY runners/package.json ./package.json
+RUN pnpm install --prod --no-lockfile --silent
+RUN mv package.json extras.json
+RUN mv package.json.bak package.json
+
+# Install extra runtime-only Python packages
+WORKDIR /opt/runners/task-runner-python
+COPY runners/extras.txt ./extras.txt
+RUN /usr/local/bin/uv pip install -r ./extras.txt
+
+# Replace runner configuration
+WORKDIR /home/runner
+COPY runners/n8n-task-runners.json /etc/n8n-task-runners.json
+
+USER runner

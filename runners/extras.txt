@@ -1,0 +1,10 @@
+# Runtime-only extra Requirements File for installing dependencies in the Python task runner image.
+# Installed at Docker image build time. Allow usage in the Code node
+# via 'N8N_RUNNERS_EXTERNAL_ALLOW' env variable on n8n-task-runners.json.
+
+pandas==2.3.3
+pytz==2025.2
+pyarrow==22.0.0
+openpyxl==3.1.5
+epiweeks==2.3.0
+hijridate==2.5.0
