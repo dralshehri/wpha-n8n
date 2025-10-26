@@ -49,6 +49,3 @@ RUN cd /usr/local/lib/node_modules/n8n && \
 
 # Switch back to node user
 USER node
-
-# Use the original entrypoint
-ENTRYPOINT ["tini", "--", "/docker-entrypoint.sh"]
