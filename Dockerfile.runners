@@ -1,10 +1,14 @@
 ARG BASE_VERSION
-FROM n8nio/runners:${BASE_VERSION}
+FROM n8nio/runners:${BASE_VERSION} AS base-runners
 
-USER root
+# Build stage for JavaScript packages
+FROM node:22-alpine AS javascript-builder
+
+# Copy JavaScript runner from base image
+COPY --from=base-runners /opt/runners/task-runner-javascript /build
 
 # Install extra runtime-only Node packages
-WORKDIR /opt/runners/task-runner-javascript
+WORKDIR /build
 RUN corepack enable pnpm
 RUN rm -f node_modules/.modules.yaml
 RUN mv package.json package.json.bak
@@ -12,6 +16,14 @@ COPY runners/package.json ./package.json
 RUN pnpm install --prod --no-lockfile --silent
 RUN mv package.json extras.json
 RUN mv package.json.bak package.json
+
+# Final stage for JavaScript packages
+FROM base-runners
+
+USER root
+
+# Copy installed Node packages
+COPY --from=javascript-builder /build /opt/runners/task-runner-javascript
 
 # Install extra runtime-only Python packages
 WORKDIR /opt/runners/task-runner-python
