@@ -97,6 +97,25 @@
       font-size: var(--font-size-subheader);
       font-weight: var(--font-weight-normal);
     }
+
+    @media only screen and (max-width: 500px) {
+      .container {
+        width: 95%;
+        min-height: 100vh;
+        padding: 12px;
+        border: 0px solid var(--color-card-border);
+        border-radius: 0px;
+        box-shadow: 0px 0px 0px 0px #ffffff;
+      }
+      .card {
+        padding: 12px;
+        background-color: var(--color-card-bg);
+        border: 0px solid var(--color-card-border);
+        border-radius: 0px;
+        box-shadow: 0px 0px 0px 0px #ffffff;
+        margin-bottom: 0px;
+      }
+    }
   </style>
 
 	{{#if dangerousCustomCss}}
