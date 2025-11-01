@@ -3,19 +3,15 @@ import { ref, onMounted, onBeforeUnmount, computed, watch } from 'vue';
 import { createEventBus } from '@n8n/utils/event-bus';
 import type { IRunData, Workflow, NodeConnectionType, IConnectedNode } from 'n8n-workflow';
 import { jsonParse, NodeHelpers, NodeConnectionTypes } from 'n8n-workflow';
-import type {
-	IRunDataDisplayMode,
-	IUpdateInformation,
-	NodePanelType,
-	TargetItem,
-} from '@/Interface';
+import type { IRunDataDisplayMode, IUpdateInformation, TargetItem } from '@/Interface';
+import type { NodePanelType } from '@/features/nodes/ndv/ndv.types';
 
 import NodeSettings from '@/components/NodeSettings.vue';
-import NDVDraggablePanels from './NDVDraggablePanels.vue';
+import NDVDraggablePanels from '../components/NDVDraggablePanels.vue';
 
-import OutputPanel from './OutputPanel.vue';
-import InputPanel from './InputPanel.vue';
-import TriggerPanel from './TriggerPanel.vue';
+import OutputPanel from '../components/OutputPanel.vue';
+import InputPanel from '../components/InputPanel.vue';
+import TriggerPanel from '../components/TriggerPanel.vue';
 import {
 	APP_MODALS_ELEMENT_ID,
 	BASE_NODE_SURVEY_URL,
@@ -26,9 +22,10 @@ import {
 } from '@/constants';
 import { useWorkflowActivate } from '@/composables/useWorkflowActivate';
 import type { DataPinningDiscoveryEvent } from '@/event-bus';
-import { dataPinningEventBus, ndvEventBus } from '@/event-bus';
+import { dataPinningEventBus } from '@/event-bus';
+import { ndvEventBus } from '@/features/nodes/ndv/ndv.eventBus';
 import { useWorkflowsStore } from '@/stores/workflows.store';
-import { useNDVStore } from '@/stores/ndv.store';
+import { useNDVStore } from '@/features/nodes/ndv/ndv.store';
 import { useNodeTypesStore } from '@/stores/nodeTypes.store';
 import { useDeviceSupport } from '@n8n/composables/useDeviceSupport';
 import { useNodeHelpers } from '@/composables/useNodeHelpers';
@@ -898,7 +895,7 @@ $main-panel-width: 360px;
 	gap: var(--spacing--3xs);
 
 	span {
-		color: var(--color-ndv-back-font);
+		color: var(--ndv--back--color--text);
 	}
 
 	&:hover {
@@ -917,7 +914,7 @@ $main-panel-width: 360px;
 	position: absolute;
 	bottom: var(--spacing--4xs);
 	left: calc(100% + var(--spacing--sm));
-	color: var(--color-feature-request-font);
+	color: var(--feature-request--color--text);
 	font-size: var(--font-size--2xs);
 	white-space: nowrap;
 
