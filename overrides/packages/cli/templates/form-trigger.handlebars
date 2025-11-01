@@ -188,6 +188,22 @@
 			.select-input {
 				border: 1px solid var(--color-input-border);
 				border-radius: var(--border-radius-input);
+				position: relative;
+				background-color: var(--color-card-bg);
+			}
+
+			.select-input::after {
+				content: '';
+				position: absolute;
+				right: 12px;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 0;
+				height: 0;
+				border-left: 5px solid transparent;
+				border-right: 5px solid transparent;
+				border-top: 6px solid var(--color-input-text);
+				pointer-events: none;
 			}
 
 			.select-input:focus-within {
@@ -195,6 +211,9 @@
 			}
 
 			form select {
+				appearance: none;
+				-webkit-appearance: none;
+				-moz-appearance: none;
 				outline: transparent;
 				border: none;
 				border-radius: var(--border-radius-input);
@@ -202,9 +221,14 @@
 				font-size: var(--font-size-input);
 				color: var(--color-input-text);
 				font-weight: 400;
-				background-color: var(--color-card-bg);
+				background-color: transparent;
 				padding: var(--padding-form-input);
-				border-right: 12px solid transparent;
+				padding-right: 36px;
+				cursor: pointer;
+			}
+
+			form select::-ms-expand {
+				display: none;
 			}
 
 			input[type='date'] {
